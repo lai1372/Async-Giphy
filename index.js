@@ -11,8 +11,10 @@ async function getImages(query) {
     );
     const response = await request.json();
     if (response.data && response.data.length > 0) {
-      console.log(response.data[0].url);
-      const imgUrl = response.data[0].url;
+      const randomNum = Math.floor(Math.random() * 25);
+      console.log(randomNum)
+      const imgUrl = response.data[randomNum].url;
+      console.log(imgUrl);
       return imgUrl;
     } else {
       console.log("no images found");
@@ -23,4 +25,4 @@ async function getImages(query) {
   }
 }
 
-getImages("success");
+getImages();
